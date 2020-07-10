@@ -1,0 +1,20 @@
+<div class= 'text-center'>
+  <h1><%= current_user.name %>さんの旅行一覧</h1>
+</div>
+<div class= 'text-right'>
+  <%= link_to '旅行を追加',  new_travel_path %>
+</div>
+<% @travels.each do |travel| %>
+
+<div class="card">
+  <div class="card-header">
+    <%= travel.name %>  
+  </div>    
+  <div class="card-body">
+    <%= link_to '予算',  budget_items_path(travel) %>
+    <%= link_to '実績',  paid_items_path(travel) %>
+    <%= link_to '削除', travel, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+  </div>
+</div>
+<% end %>
+<%= paginate @travels %>

@@ -1,0 +1,13 @@
+<div class= 'text-center'>
+  <h2><%= @travel.name %>　予算</h2>
+</div>
+<div class= 'text-right'>
+  <h2>合計<%= @budget_items.all.sum(:cost) %>円</h2>
+  <p><%= link_to '項目を追加',  new_budget_item_path %></p>
+</div>
+
+<% @budget_items.each do |budget_item| %>
+  <ul>
+    <li><%= budget_item.name %> <%= budget_item.cost %>円　<%= link_to '編集', edit_budget_item_path(budget_item)  %>　<%= link_to '削除', budget_item, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></li>
+  </ul>
+<% end %>

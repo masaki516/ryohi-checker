@@ -1,0 +1,2 @@
+module PaidItemsHelper
+end

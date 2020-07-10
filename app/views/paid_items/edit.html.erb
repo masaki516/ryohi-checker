@@ -1,0 +1,19 @@
+<div class= 'text-center'>
+  <h2>項目編集(実績)</h2>
+</div>
+<%= form_with(model: @paid_item, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+
+<div class="form-group">
+  <%= f.label :name, '項目名' %>
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
+<div class="form-group">
+  <%= f.label :cost, '金額' %>
+  <%= f.text_field :cost, class: 'form-control' %>
+</div>
+  <%= f.submit '更新', class: 'btn btn-primary btn-block'%>
+<% end %>
+<div class= 'text-right'>
+  <%= link_to '一覧に戻る', paid_items_path %>
+</div>

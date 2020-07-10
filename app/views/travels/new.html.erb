@@ -1,0 +1,16 @@
+<div class="text-center">
+  <h2>旅行追加画面</h2>
+</div>
+
+
+<%= form_with(model: @travel, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+  <div class="form-group">
+    <%= f.label :name, '旅行名' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
+<% end %>
+<div class="text-right">
+  <%= link_to 'キャンセル', root_path %>
+</div>
