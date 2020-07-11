@@ -4,19 +4,17 @@ class PaidItemsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :correct_user2, only: [:index, :new]
   before_action :set_paid_item, only: [:edit, :update, :destroy]
+  before_action :set_travel, only: [:index, :new, :create]
   
   def index
-    @travel = Travel.find(params[:id])
     @paid_items = @travel.paid_items
   end
 
   def new
     @paid_item = PaidItem.new
-    @travel = Travel.find(params[:id])
   end
 
   def create
-    @travel = Travel.find(params[:id])
     @paid_item = @travel.paid_items.build(paid_item_params)
     
     if @paid_item.save
@@ -29,6 +27,7 @@ class PaidItemsController < ApplicationController
   end
 
   def edit
+    @travel = @paid_item.travel
   end
   
   def update
@@ -56,6 +55,10 @@ class PaidItemsController < ApplicationController
     
   def set_paid_item
     @paid_item = PaidItem.find(params[:id])
+  end
+  
+  def set_travel
+    @travel = Travel.find(params[:id])
   end
   
   def correct_user

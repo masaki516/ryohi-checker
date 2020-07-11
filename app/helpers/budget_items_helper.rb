@@ -1,3 +1,2 @@
 module BudgetItemsHelper
- 
 end

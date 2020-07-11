@@ -4,20 +4,17 @@ class BudgetItemsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :correct_user2, only: [:index, :new]
   before_action :set_budget_item, only: [:edit, :update, :destroy]
-  
+  before_action :set_travel, only: [:index, :new, :create]
   
   def index
-    @travel = Travel.find(params[:id])
     @budget_items = @travel.budget_items
   end
 
   def new
     @budget_item = BudgetItem.new
-    @travel = Travel.find(params[:id])
   end
 
   def create
-    @travel = Travel.find(params[:id])
     @budget_item = @travel.budget_items.build(budget_item_params)
     
     if @budget_item.save
@@ -30,7 +27,7 @@ class BudgetItemsController < ApplicationController
   end
 
   def edit
-  
+    @travel = @budget_item.travel
   end
   
   def update
@@ -58,6 +55,10 @@ class BudgetItemsController < ApplicationController
   
   def set_budget_item
     @budget_item = BudgetItem.find(params[:id])
+  end
+  
+  def set_travel
+    @travel = Travel.find(params[:id])
   end
   
   def correct_user
