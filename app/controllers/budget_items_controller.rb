@@ -2,6 +2,7 @@ class BudgetItemsController < ApplicationController
   
   before_action :require_user_logged_in
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user2, only: [:index, :new]
   before_action :set_budget_item, only: [:edit, :update, :destroy]
   
   
@@ -62,6 +63,13 @@ class BudgetItemsController < ApplicationController
   def correct_user
     @budget_item = BudgetItem.find(params[:id])
     unless @budget_item.travel.user == @current_user
+      redirect_to travels_path
+    end
+  end
+  
+  def correct_user2
+    @travel = Travel.find(params[:id])
+    unless @travel.user == @current_user
       redirect_to travels_path
     end
   end
