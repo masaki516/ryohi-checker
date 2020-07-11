@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+  
   def new
+    render :layout => 'second_layout'
   end
 
   def create
