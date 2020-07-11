@@ -3,7 +3,6 @@ class TravelsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
 
-
   def index
     @travels = current_user.travels.order(id: :desc).page(params[:page]).per(4)
   end
@@ -39,7 +38,7 @@ class TravelsController < ApplicationController
   def correct_user
     @travel = current_user.travels.find_by(id: params[:id])
     unless @travel
-      redirect_to travels_url
+      redirect_to travels_path
     end
   end
 end

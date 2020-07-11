@@ -1,6 +1,7 @@
 class PaidItemsController < ApplicationController
   
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_paid_item, only: [:edit, :update, :destroy]
   
   def index
@@ -36,7 +37,7 @@ class PaidItemsController < ApplicationController
       redirect_to paid_items_path(@paid_item.travel)
     else
       flash.now[:danger] = '項目の更新に失敗しました。'
-      render :new
+      render :edit
     end
   end
   
@@ -56,5 +57,11 @@ class PaidItemsController < ApplicationController
     @paid_item = PaidItem.find(params[:id])
   end
   
+  def correct_user
+    @paid_item = PaidItem.find(params[:id])
+    unless @paid_item.travel.user == @current_user
+      redirect_to login_path
+    end
+  end
 end
   

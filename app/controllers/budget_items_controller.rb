@@ -1,7 +1,9 @@
 class BudgetItemsController < ApplicationController
   
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_budget_item, only: [:edit, :update, :destroy]
+  
   
   def index
     @travel = Travel.find(params[:id])
@@ -36,7 +38,7 @@ class BudgetItemsController < ApplicationController
       redirect_to budget_items_path(@budget_item.travel)
     else
       flash.now[:danger] = '項目の更新に失敗しました。'
-      render :new
+      render :edit
     end
   end
   
@@ -55,4 +57,12 @@ class BudgetItemsController < ApplicationController
   def set_budget_item
     @budget_item = BudgetItem.find(params[:id])
   end
+  
+  def correct_user
+    @budget_item = BudgetItem.find(params[:id])
+    unless @budget_item.travel.user == @current_user
+      redirect_to login_path
+    end
+  end
+  
 end
