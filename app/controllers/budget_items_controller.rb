@@ -31,7 +31,8 @@ class BudgetItemsController < ApplicationController
   end
   
   def update
-    
+     @travel = @budget_item.travel
+     
     if @budget_item.update(budget_item_params)
       flash[:success] = '項目を更新しました。'
       redirect_to budget_items_path(@budget_item.travel)

@@ -31,6 +31,7 @@ class PaidItemsController < ApplicationController
   end
   
   def update
+    @travel = @paid_item.travel
     
     if @paid_item.update(paid_item_params)
       flash[:success] = '項目を更新しました。'
