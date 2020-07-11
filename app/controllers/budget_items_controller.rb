@@ -16,8 +16,8 @@ class BudgetItemsController < ApplicationController
   end
 
   def create
-    travel = Travel.find(params[:id])
-    @budget_item = travel.budget_items.build(budget_item_params)
+    @travel = Travel.find(params[:id])
+    @budget_item = @travel.budget_items.build(budget_item_params)
     
     if @budget_item.save
       flash[:success] = '項目を追加しました。'
@@ -61,7 +61,7 @@ class BudgetItemsController < ApplicationController
   def correct_user
     @budget_item = BudgetItem.find(params[:id])
     unless @budget_item.travel.user == @current_user
-      redirect_to login_path
+      redirect_to travels_path
     end
   end
   

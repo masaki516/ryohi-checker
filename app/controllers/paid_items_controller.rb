@@ -15,8 +15,8 @@ class PaidItemsController < ApplicationController
   end
 
   def create
-    travel = Travel.find(params[:id])
-    @paid_item = travel.paid_items.build(paid_item_params)
+    @travel = Travel.find(params[:id])
+    @paid_item = @travel.paid_items.build(paid_item_params)
     
     if @paid_item.save
       flash[:success] = '項目を追加しました。'
@@ -60,7 +60,7 @@ class PaidItemsController < ApplicationController
   def correct_user
     @paid_item = PaidItem.find(params[:id])
     unless @paid_item.travel.user == @current_user
-      redirect_to login_path
+      redirect_to travels_path
     end
   end
 end
