@@ -16,7 +16,7 @@ class TravelsController < ApplicationController
 
     if @travel.save
       flash[:success] = '旅行を追加しました。'
-      redirect_to root_path
+      redirect_to travels_path
     else
       flash.now[:danger] = '旅行の追加に失敗しました。'
       render :new

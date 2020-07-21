@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'toppages', to: 'toppages#index'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  
+  post 'guest', to: 'guest_sessions#create'
 
   resources :users, only: [:create]
   get 'signup', to: 'users#new'
   
   resources :travels, only: [:index, :new, :create, :destroy]
-  root to: 'travels#index'
+  root to: 'toppages#index'
   
   resources :budget_items, only: [:destroy, :update, :edit]
   get 'travels/:id/budget_items', to: 'budget_items#index',as: 'budget_items'
