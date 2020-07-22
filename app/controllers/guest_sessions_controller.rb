@@ -1,7 +1,7 @@
 class GuestSessionsController < ApplicationController
   
   def create
-    user = User.find_by(email: 'test@example.com')
+    user = User.find_by(email: 'guestuser@example.com')
     login(user)
     flash[:success] = 'ゲストユーザーでログインしました'
     redirect_to travels_path
