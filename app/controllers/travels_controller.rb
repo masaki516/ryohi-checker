@@ -32,7 +32,7 @@ class TravelsController < ApplicationController
   private
 
   def travel_params
-    params.require(:travel).permit(:name)
+    params.require(:travel).permit(:name, :picture)
   end
   
   def correct_user
