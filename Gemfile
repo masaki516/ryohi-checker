@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave',             '1.2.2'
+gem 'fog-aws' 
 gem 'mini_magick',             '4.9.4'
 
 # Use Capistrano for deployment

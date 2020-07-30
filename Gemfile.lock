@@ -387,6 +387,7 @@ DEPENDENCIES
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
   fog (= 1.42)
+  fog-aws
   jbuilder (~> 2.5)
   kaminari
   listen (>= 3.0.5, < 3.2)
