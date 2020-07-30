@@ -13,11 +13,7 @@
         <%= travel.name %>
     </div>
     <div class="card-body text-center">
-      <% if  travel.picture? %>
-        <%= image_tag travel.picture.url, size: '300x150'  %>
-      <% else %>
-        <%= image_tag '20200503_noimage.jpg', size: '300x150' %>
-      <% end %>
+  <%= image_tag 'ryohi1.jpg', size: '400x200' %>
 　<%= link_to '予算',  budget_items_path(travel) %>(<%= travel.budget_items.all.sum(:cost) %>円)
   <%= link_to '実績',  paid_items_path(travel) %>(<%= travel.paid_items.all.sum(:cost) %>円)
   <%= link_to '旅行削除', travel, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
