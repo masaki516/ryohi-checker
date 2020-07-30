@@ -1,1 +1,0 @@
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
