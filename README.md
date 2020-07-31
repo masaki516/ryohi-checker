@@ -11,4 +11,11 @@
 ・旅行の一覧表示機能,ページネーション機能(kaminari),追加機能,削除機能  
 ・予算項目と実績項目の一覧表示機能,追加機能,編集機能,削除機能  　
 ・項目の合計金額算出機能
-
+# 使用技術  
+インフラ→AWS  
+フレームワーク→Ruby on Rails  
+メイン言語→Ruby  
+その他フロントなど→HTML,CSS,javascript,bootstrap  
+データベース(開発,本番)→MySQL,PostgreSQL  
+本番サーバー→Heroku  
+バージョン管理→Git,Github
