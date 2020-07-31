@@ -1,24 +1,7 @@
-# README
+# RyohiChecker
+アプリケーションへのリンク→https://ryohichecker.herokuapp.com/
+# アプリケーションの概要　　
+旅費の予算と実績を記録し、振り返ることで今後の無駄な出費を減らすためのシンプルなアプリです。　　
+ログインユーザーは旅行を追加し、旅行ごとに予算作成画面、実績作成画面を編集でき、登録した項目の合計金額が算出され、表示されます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#
